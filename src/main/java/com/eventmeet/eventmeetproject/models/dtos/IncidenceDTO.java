@@ -1,51 +1,27 @@
 package com.eventmeet.eventmeetproject.models.dtos;
 
 import com.eventmeet.eventmeetproject.models.user;
+import com.eventmeet.eventmeetproject.models.utils.Priorities;
+import com.eventmeet.eventmeetproject.models.utils.Scopes;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+@Data
+@AllArgsConstructor//el dto no tendrá constructor vacío porque el DTO siempre debe estar lleno
+//las peticiones del DTO vienen siempre de fuera con objetos Incidencia ya creados que, por ende deben estar ya completos
 public class IncidenceDTO {
 
     private Long id;
-    private String category;
     private String description;
-    private String priority;
-    private user userCreated;
+    private Priorities priority;
+    private Scopes scope;
+    private String userCreated;
     
-    public IncidenceDTO(Long id, String category, String description, String priority, user userCreated) {
+    public IncidenceDTO(Long id, Scopes scope, String description, Priorities priority, String userCreated) {
         this.id = id;
-        this.category = category;
         this.description = description;
         this.priority = priority;
-        this.userCreated = userCreated;
-    }
-    
-    public String getCategory() {
-        return category;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public String getPriority() {
-        return priority;
-    }
-    public Long getId() {
-        return id;
-    }
-    public user getUserCreated() {
-        return userCreated;
-    }
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public void setUserCreated(user userCreated) {
+        this.scope=scope;
         this.userCreated = userCreated;
     }
 }
