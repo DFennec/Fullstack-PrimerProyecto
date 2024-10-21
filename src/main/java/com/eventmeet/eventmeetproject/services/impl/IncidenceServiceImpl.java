@@ -27,25 +27,25 @@ public class IncidenceServiceImpl implements IncidenceService {
         incidenceRepository.save(incidence);
 
         Incidence response = incidenceRepository.save(incidence);
-        throw new UnsupportedOperationException("Unimplemented method 'storeIncidence'");
     }
 
     @Override
     public void deleteIncidence(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteIncidence'");
+        
     }
 
     @Override
-    public IncidenceDTO getIncidencesById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesById'");
+    public List<Incidence> getAllIncidences(Long id) {
+        return incidenceRepository.findAll();
     }
-
     @Override
-    public List<IncidenceDTO> getIncidencesByUserName(String username) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesByUserName'");
+    public List<Incidence> getIncidencesByUserName(String username) {
+        List<Incidence> incidences = null;
+        for (Incidence incidence : incidenceRepository.findAll()) {
+            if (incidence.getUserCreated().getName() == username) {
+                incidences.add(incidence);
+            }
     }
-
+    return incidences;
+}
 }

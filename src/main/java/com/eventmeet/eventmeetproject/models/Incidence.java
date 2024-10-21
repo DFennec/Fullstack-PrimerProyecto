@@ -29,14 +29,14 @@ public class Incidence {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(name="description")
     private String description;
 
-    @Column
+    @Column(name="priorities")
     @Enumerated(EnumType.STRING)
     private Priorities priority;//PriorityClass
 
-    @Column
+    @Column(name="scopes")
     @Enumerated(EnumType.STRING)
     private Scopes scope;
     @Column(name="createdAt", nullable = true)
